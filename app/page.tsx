@@ -62,8 +62,8 @@ function HomeContent() {
             Use oracle data onchain
           </h2>
           <p className="text-zinc-300 text-lg leading-relaxed mb-3">
-            ERC-7412 is a standard that allows smart contracts to seamlessly 
-            retrieve cryptographically-signed prices, cross-chain data, and more.</p>
+            ERC-7412 is a standard that allows smart contracts on Ethereum to 
+            use cryptographically-signed prices, cross-chain data, and more.</p>
 
           <p className="text-zinc-300 text-lg leading-relaxed">
             The idea is simple. When a function requires offchain data, it throws an
