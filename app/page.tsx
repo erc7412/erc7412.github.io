@@ -85,7 +85,7 @@ function HomeContent() {
           </h2>
           <p className="text-zinc-300 text-lg leading-relaxed mb-3">
             ERC-7412 is a standard that allows smart contracts on Ethereum to 
-            use cryptographically-signed prices, cross-chain data, and more.</p>
+            use cryptographically-signed price data, cross-chain data, and more.</p>
 
           <p className="text-zinc-300 text-lg leading-relaxed">
             The idea is simple. When a function requires offchain data, it throws an
@@ -235,9 +235,9 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
-          <div className="h-[1px] w-full bg-zinc-800"></div>
+          <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-zinc-800/90 via-[20%] to-zinc-800"></div>
           <span className="px-4">Examples</span>
-          <div className="h-[1px] w-full bg-zinc-800"></div>
+          <div className="h-[1px] w-full bg-gradient-to-r from-zinc-800 via-zinc-800/90 via-[80%] to-transparent"></div>
         </motion.h2>
 
         <motion.div 
@@ -265,13 +265,14 @@ function HomeContent() {
               Wormhole Queries
             </a>.
           </p>
-          <div className="rounded-sm border border-zinc-800 shadow-lg">
+          <div className="rounded-sm border border-zinc-800 shadow-lg font-mono text-xs">
             <CodeBlock
               text={`function verifyENSOwnership(address user, bytes ensNameNode) internal {
+
     // Query ENS ownership data from mainnet via Wormhole
     bytes memory ownerData = wormholeOracleContract.retrieveCrossChainData(
         1,  // Ethereum mainnet chain ID
-        "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e", // Address of ENS Universal Resolver Contract
+        "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e", // ENS Universal Resolver
         abi.encodeWithSelector(
             IENSRegistry.owner.selector,
             ensNameNode
@@ -285,7 +286,7 @@ function HomeContent() {
               theme={railscast}
               showLineNumbers={false}
               customStyle={{
-                padding: '0.75rem',
+                padding: '0.5rem',
                 backgroundColor: '#000000'
               }}
             />
@@ -333,11 +334,12 @@ function HomeContent() {
             >
               Redstone
             </a>{" "}
-            when issuing a decentralized stablecoin.
+            when issuing decentralized stablecoins.
           </p>
-          <div className="rounded-sm border border-zinc-800 shadow-lg">
+          <div className="rounded-sm border border-zinc-800 shadow-lg font-mono text-xs">
             <CodeBlock
               text={`function mintStablecoin(uint256 ethAmount) external {
+
     // Require ETH collateral
     require(msg.value == ethAmount, "Must send exact ETH amount");
 
@@ -375,7 +377,7 @@ function HomeContent() {
               theme={railscast}
               showLineNumbers={false}
               customStyle={{
-                padding: '0.75rem',
+                padding: '0.5rem',
                 backgroundColor: '#000000'
               }}
             />
