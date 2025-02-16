@@ -7,55 +7,55 @@ import { Github, Package, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 function HomeContent() {
-  const containerVariants = {
+  const contentVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
         duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.215, 0.61, 0.355, 1] // Cubic bezier for smoother motion
+        ease: "easeOut",
       }
     }
   };
 
   return (
-    <motion.div 
-      className="min-h-screen bg-black relative overflow-hidden"
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: { 
-          opacity: 1,
-          transition: { duration: 0.8, ease: "easeOut" }
-        }
-      }}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.5),rgba(0,0,0,0.5))] animate-[gradient_8s_ease-in-out_infinite]" />
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      <motion.div 
+        className="absolute inset-0"
+        initial={{ backgroundColor: "#000000" }}
+        animate={{
+          backgroundColor: [
+            "#1a1a1a",
+            "#1a1a1a",
+            "#000000"
+          ]
+        }}
+        transition={{
+          duration: 0.8,
+          times: [0, 0.4, 1],
+          ease: "easeInOut"
+        }}
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.5),rgba(0,0,0,0.5))]" />
+      
       <motion.div 
         className="container mx-auto px-4 max-w-3xl py-16"
-        variants={containerVariants}
+        variants={contentVariants}
         initial="hidden"
         animate="visible"
-        style={{ opacity: 0 }}
+        transition={{
+          delay: 0.4
+        }}
       >
         <motion.div 
           className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4,
+            ease: [0.215, 0.61, 0.355, 1]
+          }}
         >
           <h1 className="text-5xl md:text-7xl font-semibold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500">ERC-7412</h1>
           <h2 className="text-xl md:text-3xl text-zinc-400 mb-9 font-medium">
@@ -106,7 +106,13 @@ function HomeContent() {
 
         <motion.div 
           className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4,
+            ease: [0.215, 0.61, 0.355, 1]
+          }}
         >
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
           <p className="text-zinc-300 mb-8 text-lg">
@@ -149,7 +155,13 @@ function HomeContent() {
 
         <motion.div 
           className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4,
+            ease: [0.215, 0.61, 0.355, 1]
+          }}
         >
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
           <p className="text-zinc-300 mb-8 text-lg">
@@ -229,7 +241,7 @@ function HomeContent() {
         </motion.div>
 
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 
