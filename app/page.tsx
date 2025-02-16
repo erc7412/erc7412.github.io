@@ -79,7 +79,7 @@ function HomeContent() {
         "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e", // Address of ENS Universal Resolver Contract
         abi.encodeWithSelector(
             IENSRegistry.owner.selector,
-            keccak256(ensNameNode)
+            ensNameNode
         )
     );
     
