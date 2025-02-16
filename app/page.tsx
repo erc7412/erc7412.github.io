@@ -3,10 +3,19 @@
 import React from "react";
 import { CodeBlock, railscast } from "react-code-blocks";
 import { Button } from "@/components/ui/button";
-import { Github, Package, BookOpen } from "lucide-react";
-import { motion } from "framer-motion";
+import { Github, Package, BookOpen, Copy, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 function HomeContent() {
+  const [copiedId, setCopiedId] = React.useState<string | null>(null);
+
+  const handleCopy = (id: string, address: string) => {
+    navigator.clipboard.writeText(address);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
   const contentVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -114,6 +123,99 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
+          <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">
+            Build with real-world data
+          </h2>
+          <p className="text-zinc-300 mb-8 text-lg">
+            Write smart contracts that call the oracle contracts. Use your protocol with any app that has the client library installed.
+          </p>
+
+          <div className="overflow-x-auto rounded-sm border border-zinc-800 shadow-lg">
+            <table className="table-auto w-full text-left border-collapse bg-black">
+              <thead>
+                <tr>
+                  <th className="pb-2 border-b border-zinc-800 px-3 py-2 text-sm">
+                    <span className="font-mono">ORACLE_ID</span>
+                  </th>
+                  <th className="pb-2 border-b border-zinc-800 px-6 py-2 text-sm">
+                    Oracle Contract Address <span className="ml-0.5 font-light text-muted-foreground text-xs">on all chains</span>
+                  </th>
+                  <th className="pb-2 border-b border-zinc-800 px-3 py-2"></th>
+                </tr>
+              </thead>
+              <tbody className="align-middle text-sm">
+                {[
+                  { id: 'WORMHOLE', address: '0x0000000000000000000000000000000000000000' },
+                  { id: 'PYTH', address: '0x0000000000000000000000000000000000000000' },
+                  { id: 'CHAINLINK', address: '0x0000000000000000000000000000000000000000' },
+                  { id: 'REDSTONE', address: '0x0000000000000000000000000000000000000000' }
+                ].map((row, index) => (
+                  <tr key={row.id}>
+                    <td className={`px-3 py-2 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                      {row.id}
+                    </td>
+                    <td className={`px-6 py-2 font-mono ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                      <div className="flex items-center gap-2">
+                        {row.address}
+                        <AnimatePresence initial={false} mode="wait">
+                          {copiedId === row.id ? (
+                            <motion.div
+                              key="check"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              exit={{ opacity: 0, scale: 0.8 }}
+                              transition={{ duration: 0.15 }}
+                            >
+                              <Check 
+                                className="h-3 w-3 text-green-500" 
+                              />
+                            </motion.div>
+                          ) : (
+                            <motion.div
+                              key="copy"
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              exit={{ opacity: 0, scale: 0.8 }}
+                              transition={{ duration: 0.15 }}
+                            >
+                              <Copy 
+                                className="h-3 w-3 text-zinc-400 hover:text-zinc-300 cursor-pointer" 
+                                onClick={() => handleCopy(row.id, row.address)}
+                              />
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </td>
+                    <td className={`px-3 py-2 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                      <div className="flex gap-4 justify-end min-w-[88px]">
+                        <Image
+                          src="/cannon.svg"
+                          alt="Cannon"
+                          width={16}
+                          height={16}
+                          className="hover:opacity-80 transition-opacity cursor-pointer"
+                        />
+                        <Github className="h-4 w-4 hover:opacity-80 transition-opacity cursor-pointer" />
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </motion.div>
+
+        <motion.div 
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4,
+            ease: [0.215, 0.61, 0.355, 1]
+          }}
+        >
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Verify ENS ownership on an L2 via{" "}
@@ -153,6 +255,7 @@ function HomeContent() {
           </div>
         </motion.div>
 
+
         <motion.div 
           className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
           initial={{ opacity: 0, y: 10 }}
@@ -163,7 +266,7 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
+          <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate price data</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Fetch ETH prices from{" "}
             <a 
