@@ -334,7 +334,7 @@ function HomeContent() {
               rel="noopener noreferrer"
               className="text-white hover:text-zinc-300 transition-colors duration-200 font-medium border-b border-zinc-700 hover:border-zinc-500"
             >
-              Redstone
+              RedStone
             </a>{" "}
             when issuing decentralized stablecoins.
           </p>
