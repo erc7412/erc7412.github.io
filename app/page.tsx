@@ -4,13 +4,52 @@ import React from "react";
 import { CodeBlock, railscast } from "react-code-blocks";
 import { Button } from "@/components/ui/button";
 import { Github, Package, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
 
 function HomeContent() {
+  // Add fade-in animation for sections
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-black">
-      <div className="container mx-auto px-4 max-w-3xl py-16">
-        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]">
-          <h1 className="text-5xl md:text-7xl font-semibold mb-3 text-white tracking-tight">ERC-7412</h1>
+    <motion.div 
+      className="min-h-screen bg-black relative overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.5),rgba(0,0,0,0.5))] animate-[gradient_8s_ease-in-out_infinite]" />
+      <motion.div 
+        className="container mx-auto px-4 max-w-3xl py-16"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div 
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
+          variants={itemVariants}
+        >
+          <h1 className="text-5xl md:text-7xl font-semibold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500">ERC-7412</h1>
           <h2 className="text-xl md:text-3xl text-zinc-400 mb-9 font-medium">
             Use oracle data onchain
           </h2>
@@ -55,9 +94,12 @@ function HomeContent() {
               Read the ERC
             </Button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]">
+        <motion.div 
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
+          variants={itemVariants}
+        >
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Verify ENS ownership on an L2 via{" "}
@@ -94,9 +136,12 @@ function HomeContent() {
               }}
             />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]">
+        <motion.div 
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
+          variants={itemVariants}
+        >
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Average prices from{" "}
@@ -172,11 +217,10 @@ function HomeContent() {
               }}
             />
           </div>
-        </div>
+        </motion.div>
 
-
-        </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
