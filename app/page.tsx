@@ -196,6 +196,9 @@ function HomeContent() {
           <div className="rounded-sm border border-zinc-800 shadow-lg">
             <CodeBlock
               text={`function mintStablecoin(uint256 ethAmount) external {
+    // Require ETH collateral
+    require(msg.value == ethAmount, "Must send exact ETH amount");
+
     // Get ETH price from Chainlink
     bytes memory chainlinkData = chainlinkOracleContract.retrieveOracleData(
         CHAINLINK_ETH_FEED,
@@ -223,10 +226,7 @@ function HomeContent() {
     // Calculate stablecoins to mint with 200% collateralization ratio
     uint256 stableAmount = (ethAmount * avgPrice) / (2 * 1e18);
     
-    // Require ETH collateral
-    require(msg.value == ethAmount, "Must send exact ETH amount");
-    
-    // Mint stablecoins to user
+    // Issue stablecoins to the user
     _mint(msg.sender, stableAmount);
 }`}
               language="solidity"
