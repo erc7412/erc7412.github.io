@@ -9,9 +9,9 @@ function HomeContent() {
   return (
     <div className="min-h-screen bg-black">
       <div className="container mx-auto px-4 max-w-3xl py-16">
-        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-10 border border-zinc-800 backdrop-blur-sm">
-          <h1 className="text-6xl font-semibold mb-2 text-white tracking-tight">ERC-7412</h1>
-          <h2 className="text-2xl text-zinc-400 mb-6 font-medium">
+        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]">
+          <h1 className="text-5xl md:text-7xl font-semibold mb-3 text-white tracking-tight">ERC-7412</h1>
+          <h2 className="text-xl md:text-3xl text-zinc-400 mb-9 font-medium">
             Use oracle data onchain
           </h2>
           <p className="text-zinc-300 text-lg leading-relaxed mb-3">
@@ -26,7 +26,7 @@ function HomeContent() {
             during simulation. The client library then fetches and prepends the required data to the
             transaction automatically.
           </p>
-          <div className="flex flex-wrap gap-5 mt-6">
+          <div className="flex flex-wrap gap-5 mt-8">
             <Button
               variant="outline"
               className="px-4"
@@ -57,7 +57,7 @@ function HomeContent() {
           </div>
         </div>
 
-        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-10 border border-zinc-800 backdrop-blur-sm">
+        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]">
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Verify ENS ownership on an L2 via{" "}
@@ -70,7 +70,7 @@ function HomeContent() {
               Wormhole Queries
             </a>.
           </p>
-          <div className="rounded-sm overflow-hidden border border-zinc-800">
+          <div className="rounded-sm border border-zinc-800 shadow-lg">
             <CodeBlock
               text={`function verifyENSOwnership(address user, bytes ensNameNode) internal {
     // Query ENS ownership data from mainnet via Wormhole
@@ -88,13 +88,15 @@ function HomeContent() {
 }`}
               language="solidity"
               theme={railscast}
-              
-              
+              customStyle={{
+                padding: '0.75rem',
+                backgroundColor: '#000000'
+              }}
             />
           </div>
         </div>
 
-        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm">
+        <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]">
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Average prices from{" "}
@@ -126,7 +128,7 @@ function HomeContent() {
             </a>{" "}
             and mint a stablecoin.
           </p>
-          <div className="rounded-sm overflow-hidden border border-zinc-800">
+          <div className="rounded-sm border border-zinc-800 shadow-lg">
             <CodeBlock
               text={`function mintStablecoin(uint256 ethAmount) external {
     // Get ETH price from Chainlink
@@ -164,7 +166,10 @@ function HomeContent() {
 }`}
               language="solidity"
               theme={railscast}
-              
+              customStyle={{
+                padding: '0.75rem',
+                backgroundColor: '#000000'
+              }}
             />
           </div>
         </div>
