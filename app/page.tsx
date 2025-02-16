@@ -130,6 +130,7 @@ function HomeContent() {
 }`}
               language="solidity"
               theme={railscast}
+              showLineNumbers={false}
               customStyle={{
                 padding: '0.75rem',
                 backgroundColor: '#000000'
@@ -144,16 +145,7 @@ function HomeContent() {
         >
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
           <p className="text-zinc-300 mb-8 text-lg">
-            Average prices from{" "}
-            <a 
-              href="https://docs.chain.link/data-streams" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-zinc-300 transition-colors duration-200 font-medium border-b border-zinc-700 hover:border-zinc-500"
-            >
-              Chainlink
-            </a>{" "}
-            ,{" "}
+            Fetch ETH prices from{" "}
             <a 
               href="https://www.pyth.network/" 
               target="_blank"
@@ -161,6 +153,14 @@ function HomeContent() {
               className="text-white hover:text-zinc-300 transition-colors duration-200 font-medium border-b border-zinc-700 hover:border-zinc-500"
             >
               Pyth
+            </a>,{" "}
+            <a 
+              href="https://docs.chain.link/data-streams" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-zinc-300 transition-colors duration-200 font-medium border-b border-zinc-700 hover:border-zinc-500"
+            >
+              Chainlink
             </a>,{" "}
             and{" "}
             <a 
@@ -171,7 +171,7 @@ function HomeContent() {
             >
               Redstone
             </a>{" "}
-            and mint a stablecoin.
+            when issuing a decentralized stablecoin.
           </p>
           <div className="rounded-sm border border-zinc-800 shadow-lg">
             <CodeBlock
@@ -211,6 +211,7 @@ function HomeContent() {
 }`}
               language="solidity"
               theme={railscast}
+              showLineNumbers={false}
               customStyle={{
                 padding: '0.75rem',
                 backgroundColor: '#000000'
