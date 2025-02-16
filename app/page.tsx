@@ -16,7 +16,7 @@ function HomeContent() {
           </h2>
           <p className="text-zinc-300 text-lg leading-relaxed mb-3">
             ERC-7412 is a standard that allows smart contracts to seamlessly 
-            retrieve cryptographically-signed prices, cross-chain data, and anything else oracles can provide.</p>
+            retrieve cryptographically-signed prices, cross-chain data, and more.</p>
 
           <p className="text-zinc-300 text-lg leading-relaxed">
             The idea is simple. When a function requires offchain data, it throws an{" "}
