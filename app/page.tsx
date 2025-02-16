@@ -19,12 +19,12 @@ function HomeContent() {
             retrieve cryptographically-signed prices, cross-chain data, and anything else oracles can provide.</p>
 
           <p className="text-zinc-300 text-lg leading-relaxed">
-            The idea is simple. When a function requires data from an external source, it throws an{" "}
+            The idea is simple. When a function requires offchain data, it throws an{" "}
             <code className="bg-zinc-800 px-2 py-1 rounded mx-1 text-zinc-200 font-mono text-sm">
               OracleDataRequired
             </code>{" "}error 
-            during simulation. The client library automatically fetches and prepends the required data to the
-            transaction.{" "}
+            during simulation. The client library then fetches and prepends the required data to the
+            transaction automatically.
           </p>
           <div className="flex flex-wrap gap-4 mt-6">
             <Button
