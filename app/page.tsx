@@ -72,14 +72,14 @@ function HomeContent() {
           </p>
           <div className="rounded-sm overflow-hidden border border-zinc-800">
             <CodeBlock
-              text={`function verifyENSOwnership(address user, string calldata ensName) internal {
+              text={`function verifyENSOwnership(address user, bytes ensNameNode) internal {
     // Query ENS ownership data from mainnet via Wormhole
     bytes memory ownerData = wormholeOracleContract.retrieveCrossChainData(
         1,  // Ethereum mainnet chain ID
-        ENS_REGISTRY, 
+        "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e", // Address of ENS Universal Resolver Contract
         abi.encodeWithSelector(
             IENSRegistry.owner.selector,
-            keccak256(bytes(ensName))
+            keccak256(ensNameNode)
         )
     );
     
