@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Space_Grotesk, Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -7,6 +7,12 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const chakraPetch = Chakra_Petch({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -20,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} font-sans antialiased ${chakraPetch.className}`}>
       <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
