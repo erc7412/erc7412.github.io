@@ -7,26 +7,27 @@ import { Github, Package, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 function HomeContent() {
-  // Add fade-in animation for sections
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+        duration: 0.8,
+        ease: "easeOut"
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: "easeOut"
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1] // Cubic bezier for smoother motion
       }
     }
   };
@@ -34,9 +35,15 @@ function HomeContent() {
   return (
     <motion.div 
       className="min-h-screen bg-black relative overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { 
+          opacity: 1,
+          transition: { duration: 0.8, ease: "easeOut" }
+        }
+      }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.5),rgba(0,0,0,0.5))] animate-[gradient_8s_ease-in-out_infinite]" />
       <motion.div 
@@ -44,6 +51,7 @@ function HomeContent() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
+        style={{ opacity: 0 }}
       >
         <motion.div 
           className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
