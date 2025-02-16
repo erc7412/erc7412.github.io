@@ -13,106 +13,29 @@ function HomeContent() {
           <h2 className="text-2xl text-zinc-400 mb-6">
             Use oracle data onchain
           </h2>
-          <p className="text-zinc-300 text-lg leading-relaxed">
+          <p className="text-zinc-300 text-lg leading-relaxed mb-3">
             ERC-7412 is a standard that allows smart contracts to seamlessly 
-            retrieve cryptographically-signed data like price feeds or cross-chain data.
-            When a contract function requires data from an external source, it throws{" "}
+            retrieve cryptographically-signed prices, cross-chain data, and anything else oracles can provide.</p>
+
+          <p className="text-zinc-300 text-lg leading-relaxed">
+            The idea is simple. When a contract function requires data from an external source, it throws an{" "}
             <code className="bg-zinc-800 px-2 py-1 rounded mx-1 text-zinc-200 font-mono text-sm">
               OracleDataRequired
-            </code>{" "}
+            </code>{" "}error 
             during simulation. The client library automatically fetches and prepends the required data to the
             transaction.{" "}
             <a 
               href="https://eips.ethereum.org/EIPS/eip-7412" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-500 hover:text-violet-500 transition-colors duration-200 font-medium"
+              className="text-indigo-400 hover:text-violet-400 transition-colors duration-200 font-medium"
             >
               Read the ERC
             </a>
           </p>
         </div>
 
-        <div className="bg-zinc-900/50 rounded-2xl shadow-lg p-10 border border-zinc-800 backdrop-blur-sm">
-          <h2 className="text-3xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
-          <p className="text-zinc-300 mb-6 font-medium">
-            Average prices from{" "}
-            <a 
-              href="https://docs.chain.link/data-streams" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-indigo-500 hover:text-violet-500 transition-colors duration-200 font-medium"
-            >
-              Chainlink
-            </a>{" "}
-            ,{" "}
-            <a 
-              href="https://www.pyth.network/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-indigo-500 hover:text-violet-500 transition-colors duration-200 font-medium"
-            >
-              Pyth
-            </a>,{" "}
-            and{" "}
-            <a 
-              href="https://www.redstone.finance/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-indigo-500 hover:text-violet-500 transition-colors duration-200 font-medium"
-            >
-              Redstone
-            </a>{" "}
-            for ETH and mint a stablecoin.
-          </p>
-          <div className="rounded-xl overflow-hidden border border-zinc-800">
-            <CopyBlock
-              text={`function mintStablecoin(uint256 ethAmount) external {
-    // Get Chainlink price
-    bytes memory chainlinkData = chainlinkOracleContract.retrieveOracleData(
-        CHAINLINK_ETH_FEED,
-        abi.encodeWithSelector(IChainlinkFeed.latestAnswer.selector)
-    );
-    uint256 chainlinkPrice = abi.decode(chainlinkData, (uint256));
-
-    // Get Pyth price
-    bytes memory pythData = pythOracleContract.retrieveOracleData(
-        PYTH_ETH_FEED,
-        abi.encodeWithSelector(IPythFeed.getPrice.selector)
-    );
-    uint256 pythPrice = abi.decode(pythData, (uint256));
-
-    // Get Redstone price
-    bytes memory redstoneData = redstoneOracleContract.retrieveOracleData(
-        REDSTONE_ETH_FEED,
-        abi.encodeWithSelector(IRedstoneOracle.getValue.selector)
-    );
-    uint256 redstonePrice = abi.decode(redstoneData, (uint256));
-
-    // Average the prices
-    uint256 avgPrice = (chainlinkPrice + pythPrice + redstonePrice) / 3;
-    
-    // Calculate stablecoins to mint with 200% collateralization ratio
-    uint256 stableAmount = (ethAmount * avgPrice) / (2 * 1e18);
-    
-    // Require ETH collateral
-    require(msg.value == ethAmount, "Must send exact ETH amount");
-    
-    // Mint stablecoins to user
-    _mint(msg.sender, stableAmount);
-}`}
-              language="javascript"
-              theme={dracula}
-              codeBlock
-              customStyle={{
-                borderRadius: '12px',
-                padding: '20px',
-              }}
-            />
-          </div>
-        </div>
-
-        <div className="bg-zinc-900/50 rounded-2xl shadow-lg p-10 mt-10 border border-zinc-800 backdrop-blur-sm">
+        <div className="bg-zinc-900/50 rounded-2xl shadow-lg p-10 mb-10 border border-zinc-800 backdrop-blur-sm">
           <h2 className="text-3xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
           <p className="text-zinc-300 mb-6 font-medium">
             Verify ENS ownership on an L2 via{" "}
@@ -120,7 +43,7 @@ function HomeContent() {
               href="https://wormhole.com/products/queries" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-indigo-500 hover:text-violet-500 transition-colors duration-200 font-medium"
+              className="text-indigo-400 hover:text-violet-400 transition-colors duration-200 font-medium"
             >
               Wormhole Queries
             </a>.
@@ -151,6 +74,86 @@ function HomeContent() {
             />
           </div>
         </div>
+
+        <div className="bg-zinc-900/50 rounded-2xl shadow-lg p-10 border border-zinc-800 backdrop-blur-sm">
+          <h2 className="text-3xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
+          <p className="text-zinc-300 mb-6 font-medium">
+            Average prices from{" "}
+            <a 
+              href="https://docs.chain.link/data-streams" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-400 hover:text-violet-400 transition-colors duration-200 font-medium"
+            >
+              Chainlink
+            </a>{" "}
+            ,{" "}
+            <a 
+              href="https://www.pyth.network/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-400 hover:text-violet-400 transition-colors duration-200 font-medium"
+            >
+              Pyth
+            </a>,{" "}
+            and{" "}
+            <a 
+              href="https://www.redstone.finance/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-indigo-400 hover:text-violet-400 transition-colors duration-200 font-medium"
+            >
+              Redstone
+            </a>{" "}
+            for ETH and mint a stablecoin.
+          </p>
+          <div className="rounded-xl overflow-hidden border border-zinc-800">
+            <CopyBlock
+              text={`function mintStablecoin(uint256 ethAmount) external {
+    // Get ETH price from Chainlink
+    bytes memory chainlinkData = chainlinkOracleContract.retrieveOracleData(
+        CHAINLINK_ETH_FEED,
+        abi.encodeWithSelector(IChainlinkFeed.latestAnswer.selector)
+    );
+    uint256 chainlinkPrice = abi.decode(chainlinkData, (uint256));
+
+    // Get ETH price from Pyth
+    bytes memory pythData = pythOracleContract.retrieveOracleData(
+        PYTH_ETH_FEED,
+        abi.encodeWithSelector(IPythFeed.getPrice.selector)
+    );
+    uint256 pythPrice = abi.decode(pythData, (uint256));
+
+    // Get ETH price from Redstone
+    bytes memory redstoneData = redstoneOracleContract.retrieveOracleData(
+        REDSTONE_ETH_FEED,
+        abi.encodeWithSelector(IRedstoneOracle.getValue.selector)
+    );
+    uint256 redstonePrice = abi.decode(redstoneData, (uint256));
+
+    // Average the prices
+    uint256 avgPrice = (chainlinkPrice + pythPrice + redstonePrice) / 3;
+    
+    // Calculate stablecoins to mint with 200% collateralization ratio
+    uint256 stableAmount = (ethAmount * avgPrice) / (2 * 1e18);
+    
+    // Require ETH collateral
+    require(msg.value == ethAmount, "Must send exact ETH amount");
+    
+    // Mint stablecoins to user
+    _mint(msg.sender, stableAmount);
+}`}
+              language="javascript"
+              theme={dracula}
+              codeBlock
+              customStyle={{
+                borderRadius: '12px',
+                padding: '20px',
+              }}
+            />
+          </div>
+        </div>
+
 
         </div>
     </div>
