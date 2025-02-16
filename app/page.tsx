@@ -19,22 +19,22 @@ function HomeContent() {
             retrieve cryptographically-signed prices, cross-chain data, and more.</p>
 
           <p className="text-zinc-300 text-lg leading-relaxed">
-            The idea is simple. When a function requires offchain data, it throws an{" "}
-            <code className="bg-zinc-800 px-2 py-1 rounded mx-1 text-zinc-200 font-mono text-sm">
+            The idea is simple. When a function requires offchain data, it throws an
+            <code className="inline bg-zinc-800 px-2 py-1 rounded mx-1 text-zinc-200 font-mono text-sm">
               OracleDataRequired
-            </code>{" "}error 
+            </code>error 
             during simulation. The client library then fetches and prepends the required data to the
             transaction automatically.
           </p>
-          <div className="flex flex-wrap gap-4 mt-6">
+          <div className="flex flex-wrap gap-5 mt-6">
             <Button
               variant="outline"
               className="px-4"
               size="lg"
               onClick={() => window.open('https://www.npmjs.com/package/erc7412', '_blank')}
             >
-              <Package className="mr-2 h-4 w-4" />
-              Download Client Library
+              <Package className="mr-1 h-4 w-4" />
+              Install Client Library
             </Button>
             <Button
               variant="outline"
@@ -42,7 +42,7 @@ function HomeContent() {
               size="lg"
               onClick={() => window.open('https://github.com/erc7412/erc7412', '_blank')}
             >
-              <Github className="mr-2 h-4 w-4" />
+              <Github className="mr-1 h-4 w-4" />
               View on GitHub
             </Button>
             <Button
@@ -51,7 +51,7 @@ function HomeContent() {
               size="lg"
               onClick={() => window.open('https://eips.ethereum.org/EIPS/eip-7412', '_blank')}
             >
-              <BookOpen className="mr-2 h-4 w-4" />
+              <BookOpen className="mr-1 h-4 w-4" />
               Read the ERC
             </Button>
           </div>
@@ -59,7 +59,7 @@ function HomeContent() {
 
         <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-10 border border-zinc-800 backdrop-blur-sm">
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
-          <p className="text-zinc-300 mb-6 text-lg">
+          <p className="text-zinc-300 mb-8 text-lg">
             Verify ENS ownership on an L2 via{" "}
             <a 
               href="https://wormhole.com/products/queries" 
@@ -96,7 +96,7 @@ function HomeContent() {
 
         <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm">
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
-          <p className="text-zinc-300 mb-6 text-lg">
+          <p className="text-zinc-300 mb-8 text-lg">
             Average prices from{" "}
             <a 
               href="https://docs.chain.link/data-streams" 
