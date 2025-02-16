@@ -308,7 +308,7 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">Integrate price data</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">Integrate with price feeds</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Fetch ETH prices from{" "}
             <a 
