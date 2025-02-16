@@ -23,6 +23,8 @@ function HomeContent() {
   const crossChainInView = useInView(crossChainRef, { once: true });
   const priceDataInView = useInView(priceDataRef, { once: true });
 
+  const basePath = process.env.NODE_ENV === 'production' ? '/erc7412' : '';
+
   const handleCopy = (id: string, address: string) => {
     navigator.clipboard.writeText(address);
     setCopiedId(id);
@@ -204,7 +206,7 @@ function HomeContent() {
                     <td className={`px-3 py-2 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
                       <div className="flex gap-4 justify-end min-w-[88px]">
                         <Image
-                          src="/cannon.svg"
+                          src={`${basePath}/cannon.svg`}
                           alt="Cannon"
                           width={16}
                           height={16}
