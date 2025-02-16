@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Github, Package, BookOpen, Copy, Check } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
+import { basePath } from "@/lib/utils";
 
 function HomeContent() {
   const [copiedId, setCopiedId] = React.useState<string | null>(null);
@@ -22,8 +23,6 @@ function HomeContent() {
   const examplesHeaderInView = useInView(examplesHeaderRef, { once: true });
   const crossChainInView = useInView(crossChainRef, { once: true });
   const priceDataInView = useInView(priceDataRef, { once: true });
-
-  const basePath = process.env.NODE_ENV === 'production' ? '/erc7412' : '';
 
   const handleCopy = (id: string, address: string) => {
     navigator.clipboard.writeText(address);
@@ -58,7 +57,7 @@ function HomeContent() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.5),rgba(0,0,0,0.5))]" />
       
       <motion.div 
-        className="container mx-auto px-4 max-w-3xl py-24"
+        className="container mx-auto px-4 max-w-3xl py-8 md:py-24"
         variants={contentVariants}
         initial="hidden"
         animate="visible"
@@ -68,7 +67,7 @@ function HomeContent() {
       >
         <motion.div 
           ref={heroRef}
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-6 md:p-10 mb-12 md:mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: heroInView ? 1 : 0, 
@@ -79,23 +78,23 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
-          <h1 className="text-5xl md:text-7xl font-semibold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500">ERC-7412</h1>
+          <h1 className="text-5xl md:text-7xl font-semibold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500 mt-3">ERC-7412</h1>
           <h2 className="text-xl md:text-3xl text-zinc-400 mb-9 font-medium">
             Use oracle data onchain
           </h2>
           <p className="text-zinc-300 text-lg leading-relaxed mb-3">
-            ERC-7412 is a standard that allows smart contracts on Ethereum to 
+            <span className="font-semibold">ERC-7412</span> is a standard that enables smart contracts on Ethereum to 
             use cryptographically-signed price data, cross-chain data, and more.</p>
 
           <p className="text-zinc-300 text-lg leading-relaxed">
-            The idea is simple. When a function requires offchain data, it throws an
+          <span className="font-semibold">The idea is simple.</span> When a function requires offchain data, it throws an
             <code className="inline bg-zinc-800 px-2 py-1 rounded mx-1 text-zinc-200 font-mono text-sm">
               OracleDataRequired
             </code>error 
             during simulation. The client library then fetches and prepends the required data to the
             transaction automatically.
           </p>
-          <div className="flex flex-wrap gap-5 mt-8">
+          <div className="flex flex-wrap gap-3 md:gap-5 mt-8">
             <Button
               variant="outline"
               className="px-4"
@@ -128,7 +127,7 @@ function HomeContent() {
 
         <motion.div 
           ref={oraclesRef}
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-6 md:p-10 mb-12 md:mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: oraclesInView ? 1 : 0, 
@@ -139,7 +138,7 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">
             Build with real-world data
           </h2>
           <p className="text-zinc-300 mb-8 text-lg">
@@ -224,7 +223,7 @@ function HomeContent() {
 
         <motion.h2 
           ref={examplesHeaderRef}
-          className="backdrop-blur-sm pt-24 mb-24 text-muted-foreground text-mono font-medium tracking-widest uppercase text-lg flex items-center justify-center"
+          className="backdrop-blur-sm pt-12 md:pt-24 mb-12 md:mb-24 text-muted-foreground text-mono font-medium tracking-widest uppercase text-lg flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: examplesHeaderInView ? 1 : 0, 
@@ -242,7 +241,7 @@ function HomeContent() {
 
         <motion.div 
           ref={crossChainRef}
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-6 md:p-10 mb-12 md:mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: crossChainInView ? 1 : 0, 
@@ -253,9 +252,9 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">Call view functions across chains</h2>
           <p className="text-zinc-300 mb-8 text-lg">
-            Verify ENS ownership on an L2 via{" "}
+            Verify <span className="font-mono">.eth</span> address ownership on an L2 via{" "}
             <a 
               href="https://wormhole.com/products/queries" 
               target="_blank"
@@ -269,7 +268,7 @@ function HomeContent() {
             <CodeBlock
               text={`function verifyENSOwnership(address user, bytes ensNameNode) internal {
 
-    // Query ENS ownership data from mainnet via Wormhole
+    // Query ENS ownership data on mainnet
     bytes memory ownerData = wormholeOracleContract.retrieveCrossChainData(
         1,  // Ethereum mainnet chain ID
         "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e", // ENS Universal Resolver
@@ -295,7 +294,7 @@ function HomeContent() {
 
         <motion.div 
           ref={priceDataRef}
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-6 md:p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: priceDataInView ? 1 : 0, 
@@ -306,7 +305,7 @@ function HomeContent() {
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate price data</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">Integrate price data</h2>
           <p className="text-zinc-300 mb-8 text-lg">
             Fetch ETH prices from{" "}
             <a 
