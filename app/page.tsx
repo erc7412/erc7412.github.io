@@ -3,20 +3,6 @@
 import React from "react";
 import { CopyBlock, dracula } from "react-code-blocks";
 
-import "@rainbow-me/rainbowkit/styles.css";
-import {
-  getDefaultWallets,
-  RainbowKitProvider,
-  ConnectButton,
-} from "@rainbow-me/rainbowkit";
-import {
-  configureChains,
-  createConfig,
-  WagmiConfig,
-} from "wagmi";
-import { mainnet } from "viem/chains";
-import { publicProvider } from 'wagmi/providers/public';
-
 function HomeContent() {
   return (
     <div className="min-h-screen bg-black">
@@ -172,29 +158,7 @@ function HomeContent() {
 }
 
 export default function HomePage() {
-  const { chains, publicClient, webSocketPublicClient } = configureChains(
-    [mainnet],
-    [publicProvider()]
-  );
-
-  const { connectors } = getDefaultWallets({
-    appName: "ERC-7412 Demo",
-    chains,
-    projectId: "YOUR_PROJECT_ID",
-  });
-
-  const config = createConfig({
-    autoConnect: true,
-    connectors,
-    publicClient,
-    webSocketPublicClient,
-  });
-
   return (
-    <WagmiConfig config={config}>
-      <RainbowKitProvider chains={chains}>
         <HomeContent />
-      </RainbowKitProvider>
-    </WagmiConfig>
   );
 }
