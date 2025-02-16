@@ -4,11 +4,24 @@ import React from "react";
 import { CodeBlock, railscast } from "react-code-blocks";
 import { Button } from "@/components/ui/button";
 import { Github, Package, BookOpen, Copy, Check } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 
 function HomeContent() {
   const [copiedId, setCopiedId] = React.useState<string | null>(null);
+
+  // Add refs and useInView hooks for each section
+  const heroRef = React.useRef(null);
+  const oraclesRef = React.useRef(null);
+  const examplesHeaderRef = React.useRef(null);
+  const crossChainRef = React.useRef(null);
+  const priceDataRef = React.useRef(null);
+
+  const heroInView = useInView(heroRef, { once: true });
+  const oraclesInView = useInView(oraclesRef, { once: true });
+  const examplesHeaderInView = useInView(examplesHeaderRef, { once: true });
+  const crossChainInView = useInView(crossChainRef, { once: true });
+  const priceDataInView = useInView(priceDataRef, { once: true });
 
   const handleCopy = (id: string, address: string) => {
     navigator.clipboard.writeText(address);
@@ -31,24 +44,19 @@ function HomeContent() {
     <div className="min-h-screen bg-black relative overflow-hidden">
       <motion.div 
         className="absolute inset-0"
-        initial={{ backgroundColor: "#000000" }}
+        initial={{ backgroundColor: "#1a1a1a" }}
         animate={{
-          backgroundColor: [
-            "#1a1a1a",
-            "#1a1a1a",
-            "#000000"
-          ]
+          backgroundColor: "#000000"
         }}
         transition={{
-          duration: 0.8,
-          times: [0, 0.4, 1],
+          duration: 2,
           ease: "easeInOut"
         }}
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.5),rgba(0,0,0,0.5))]" />
       
       <motion.div 
-        className="container mx-auto px-4 max-w-3xl py-16"
+        className="container mx-auto px-4 max-w-3xl py-24"
         variants={contentVariants}
         initial="hidden"
         animate="visible"
@@ -57,12 +65,15 @@ function HomeContent() {
         }}
       >
         <motion.div 
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          ref={heroRef}
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: heroInView ? 1 : 0, 
+            y: heroInView ? 0 : 20 
+          }}
           transition={{
             duration: 0.8,
-            delay: 0.4,
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
@@ -114,12 +125,15 @@ function HomeContent() {
         </motion.div>
 
         <motion.div 
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          ref={oraclesRef}
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: oraclesInView ? 1 : 0, 
+            y: oraclesInView ? 0 : 20 
+          }}
           transition={{
             duration: 0.8,
-            delay: 0.4,
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
@@ -206,13 +220,34 @@ function HomeContent() {
           </div>
         </motion.div>
 
-        <motion.div 
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-12 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+        <motion.h2 
+          ref={examplesHeaderRef}
+          className="backdrop-blur-sm pt-24 mb-24 text-muted-foreground text-mono font-medium tracking-widest uppercase text-lg flex items-center justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: examplesHeaderInView ? 1 : 0, 
+            y: examplesHeaderInView ? 0 : 20 
+          }}
           transition={{
             duration: 0.8,
-            delay: 0.4,
+            ease: [0.215, 0.61, 0.355, 1]
+          }}
+        >
+          <div className="h-[1px] w-full bg-zinc-800"></div>
+          <span className="px-4">Examples</span>
+          <div className="h-[1px] w-full bg-zinc-800"></div>
+        </motion.h2>
+
+        <motion.div 
+          ref={crossChainRef}
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.6)]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: crossChainInView ? 1 : 0, 
+            y: crossChainInView ? 0 : 20 
+          }}
+          transition={{
+            duration: 0.8,
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
@@ -255,14 +290,16 @@ function HomeContent() {
           </div>
         </motion.div>
 
-
         <motion.div 
+          ref={priceDataRef}
           className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: priceDataInView ? 1 : 0, 
+            y: priceDataInView ? 0 : 20 
+          }}
           transition={{
             duration: 0.8,
-            delay: 0.4,
             ease: [0.215, 0.61, 0.355, 1]
           }}
         >
