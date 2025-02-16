@@ -18,11 +18,11 @@ function HomeContent() {
   const crossChainRef = React.useRef(null);
   const priceDataRef = React.useRef(null);
 
-  const heroInView = useInView(heroRef, { once: true });
-  const oraclesInView = useInView(oraclesRef, { once: true });
-  const examplesHeaderInView = useInView(examplesHeaderRef, { once: true });
-  const crossChainInView = useInView(crossChainRef, { once: true });
-  const priceDataInView = useInView(priceDataRef, { once: true });
+  const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
+  const oraclesInView = useInView(oraclesRef, { once: true, amount: 0.3 });
+  const examplesHeaderInView = useInView(examplesHeaderRef, { once: true, amount: 0.3 });
+  const crossChainInView = useInView(crossChainRef, { once: true, amount: 0.3 });
+  const priceDataInView = useInView(priceDataRef, { once: true, amount: 0.3 });
 
   const handleCopy = (id: string, address: string) => {
     navigator.clipboard.writeText(address);
@@ -54,24 +54,27 @@ function HomeContent() {
           ease: "easeInOut"
         }}
       />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(24,24,27,0.5),rgba(0,0,0,0.5))]" />
+      <div className="fixed inset-0 bg-gradient-to-br from-black via-black to-zinc-800/25" />
       
       <motion.div 
         className="container mx-auto px-4 max-w-3xl py-8 md:py-24"
         variants={contentVariants}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
-          delay: 0.4
+          delay: 0.4,
+          duration: 0.8,
+          ease: [0.215, 0.61, 0.355, 1]
         }}
       >
         <motion.div 
           ref={heroRef}
           className="bg-zinc-900/50 rounded-sm shadow-lg p-6 md:p-10 mb-12 md:mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 20, scale: 0.98 }}
           animate={{ 
             opacity: heroInView ? 1 : 0, 
-            y: heroInView ? 0 : 20 
+            y: heroInView ? 0 : 20,
+            scale: heroInView ? 1 : 0.98
           }}
           transition={{
             duration: 0.8,
@@ -223,7 +226,7 @@ function HomeContent() {
 
         <motion.h2 
           ref={examplesHeaderRef}
-          className="backdrop-blur-sm pt-12 md:pt-24 mb-12 md:mb-24 text-muted-foreground text-mono font-medium tracking-widest uppercase text-lg flex items-center justify-center"
+          className="backdrop-blur-sm mt-12 md:pt-24 mb-12 md:mb-24 text-muted-foreground text-mono font-medium tracking-widest uppercase text-lg flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: examplesHeaderInView ? 1 : 0, 
