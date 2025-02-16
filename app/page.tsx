@@ -141,7 +141,7 @@ function HomeContent() {
             Build with real-world data
           </h2>
           <p className="text-zinc-300 mb-8 text-lg">
-            Write smart contracts that call the oracle contracts. Use your protocol with any app that has the client library installed.
+            Write smart contracts that call oracle contracts. Use your protocol with any app that has the client library installed.
           </p>
 
           <div className="overflow-x-auto rounded-sm border border-zinc-800 shadow-lg">
