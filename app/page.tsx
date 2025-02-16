@@ -59,7 +59,7 @@ function HomeContent() {
 
         <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 mb-10 border border-zinc-800 backdrop-blur-sm">
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Reference data from any chain</h2>
-          <p className="text-zinc-300 mb-6 font-medium text-lg">
+          <p className="text-zinc-300 mb-6 text-lg">
             Verify ENS ownership on an L2 via{" "}
             <a 
               href="https://wormhole.com/products/queries" 
@@ -96,7 +96,7 @@ function HomeContent() {
 
         <div className="bg-zinc-900/50 rounded-sm shadow-lg p-10 border border-zinc-800 backdrop-blur-sm">
           <h2 className="text-4xl font-bold mb-4 text-white tracking-tight">Integrate real-world price data</h2>
-          <p className="text-zinc-300 mb-6 font-medium text-lg">
+          <p className="text-zinc-300 mb-6 text-lg">
             Average prices from{" "}
             <a 
               href="https://docs.chain.link/data-streams" 
