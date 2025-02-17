@@ -82,7 +82,7 @@ function HomeContent() {
           }}
         >
           <h1 className="text-5xl md:text-7xl font-semibold mb-3 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500 mt-3">ERC-7412</h1>
-          <h2 className="text-xl md:text-3xl text-zinc-400 mb-9 font-medium">
+          <h2 className="text-xl md:text-3xl text-zinc-400 mb-6 md:mb-9 font-medium">
             Use oracle data onchain
           </h2>
           <p className="text-zinc-300 text-lg leading-relaxed mb-3">
@@ -90,10 +90,10 @@ function HomeContent() {
             use cryptographically-signed price data, cross-chain data, and more.</p>
 
           <p className="text-zinc-300 text-lg leading-relaxed">
-          <span className="font-semibold">The idea is simple.</span> When a function requires offchain data, it throws an
+          When a function requires offchain data, it throws an{' '}
             <code className="inline bg-zinc-800 px-2 py-1 rounded mx-1 text-zinc-200 font-mono text-sm">
               OracleDataRequired
-            </code>error 
+            </code>{' '}error 
             during simulation. The client library then fetches and prepends the required data to the
             transaction automatically.
           </p>
