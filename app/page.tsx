@@ -17,12 +17,14 @@ function HomeContent() {
   const examplesHeaderRef = React.useRef(null);
   const crossChainRef = React.useRef(null);
   const priceDataRef = React.useRef(null);
+  const footerRef = React.useRef(null);
 
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const oraclesInView = useInView(oraclesRef, { once: true, amount: 0.3 });
   const examplesHeaderInView = useInView(examplesHeaderRef, { once: true, amount: 0.3 });
   const crossChainInView = useInView(crossChainRef, { once: true, amount: 0.3 });
   const priceDataInView = useInView(priceDataRef, { once: true, amount: 0.3 });
+  const footerInView = useInView(footerRef, { once: true, amount: 0.3 });
 
   const handleCopy = (id: string, address: string) => {
     navigator.clipboard.writeText(address);
@@ -297,7 +299,7 @@ function HomeContent() {
 
         <motion.div 
           ref={priceDataRef}
-          className="bg-zinc-900/50 rounded-sm shadow-lg p-6 md:p-10 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
+          className="bg-zinc-900/50 rounded-sm shadow-lg p-6 md:p-10 mb-12 md:mb-24 border border-zinc-800 backdrop-blur-sm ring-1 ring-inset ring-white/[0.05] [box-shadow:inset_0_2px_20px_rgba(0,0,0,0.33)]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: priceDataInView ? 1 : 0, 
@@ -384,6 +386,47 @@ function HomeContent() {
               }}
             />
           </div>
+        </motion.div>
+
+        <motion.div 
+          ref={footerRef}
+          className="text-center text-zinc-600 text-xs backdrop-blur-sm font-mono tracking-wider"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ 
+            opacity: footerInView ? 1 : 0, 
+            y: footerInView ? 0 : 10 
+          }}
+          transition={{
+            duration: 0.8,
+            ease: [0.215, 0.61, 0.355, 1]
+          }}
+        >
+          built with{" "}
+          <Image 
+            src={`${basePath}/heart.webp`}
+            alt="heart"
+            width={16}
+            height={16}
+            className="inline-block"
+          />
+          {" "}by{" "}
+          <a 
+            href="https://github.com/dbeal-eth" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-zinc-500 hover:text-zinc-400 transition-colors duration-200"
+          >
+            dbeal-eth
+          </a>
+          {" "}+{" "}
+          <a 
+            href="https://github.com/noahlitvin" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-zinc-500 hover:text-zinc-400 transition-colors duration-200"
+          >
+            noahlitvin
+          </a>
         </motion.div>
 
       </motion.div>
