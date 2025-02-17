@@ -59,7 +59,7 @@ function HomeContent() {
       <div className="fixed inset-0 bg-gradient-to-br from-black via-black to-zinc-800/25" />
       
       <motion.div 
-        className="container mx-auto px-4 max-w-3xl py-8 md:py-24"
+        className="container mx-auto px-4 max-w-3xl py-8 md:py-12 md:pt-24"
         variants={contentVariants}
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -390,7 +390,7 @@ function HomeContent() {
 
         <motion.div 
           ref={footerRef}
-          className="text-center text-zinc-600 text-xs backdrop-blur-sm font-mono tracking-wider"
+          className="text-center text-zinc-600 text-xs backdrop-blur-sm font-mono tracking-wider pt-12"
           initial={{ opacity: 0, y: 10 }}
           animate={{ 
             opacity: footerInView ? 1 : 0, 
