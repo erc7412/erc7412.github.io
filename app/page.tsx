@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Github, Package, BookOpen, Copy, Check } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
-import { basePath } from "@/lib/utils";
 
 function HomeContent() {
   const [copiedId, setCopiedId] = React.useState<string | null>(null);
@@ -210,7 +209,7 @@ function HomeContent() {
                     <td className={`px-3 py-2 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
                       <div className="flex gap-4 justify-end min-w-[88px]">
                         <Image
-                          src={`${basePath}/cannon.svg`}
+                          src="/cannon.svg"
                           alt="Cannon"
                           width={16}
                           height={16}
@@ -228,7 +227,7 @@ function HomeContent() {
 
         <motion.h2 
           ref={examplesHeaderRef}
-          className="backdrop-blur-sm mt-12 md:pt-24 mb-12 md:mb-24 text-muted-foreground text-mono font-medium tracking-widest uppercase text-lg flex items-center justify-center"
+          className="backdrop-blur-sm mt-12 pt-12 md:pt-24 mb-12 md:mb-24 text-muted-foreground text-mono font-medium tracking-widest uppercase text-lg flex items-center justify-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ 
             opacity: examplesHeaderInView ? 1 : 0, 
@@ -403,7 +402,7 @@ function HomeContent() {
         >
           built with{" "}
           <Image 
-            src={`${basePath}/heart.webp`}
+            src="/heart.webp"
             alt="heart"
             width={16}
             height={16}

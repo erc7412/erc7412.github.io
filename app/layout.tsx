@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { basePath } from "@/lib/utils";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: `${basePath}/og.png`,
+        url: "/og.png",
       },
     ],
   },
