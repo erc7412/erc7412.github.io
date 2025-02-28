@@ -65,7 +65,7 @@ export default function Oracles() {
                 <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
                   <button className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
                     <Github className="h-3.5 w-3.5" />
-                    Library Adapter Code
+                    Client Library Code
                   </button>
                 </td>
                 <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
