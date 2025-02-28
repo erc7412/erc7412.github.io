@@ -19,11 +19,24 @@ export const metadata: Metadata = {
   title: "ERC-7412",
   description: "Use oracle data onchain",
   openGraph: {
+    title: "ERC-7412",
+    description: "Use oracle data onchain",
+    type: "website",
+    url: "https://erc7412.github.io",
     images: [
       {
         url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "ERC-7412",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ERC-7412",
+    description: "Use oracle data onchain",
+    images: ["/og.png"],
   },
 };
 
