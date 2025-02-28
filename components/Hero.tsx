@@ -9,17 +9,6 @@ export default function Hero() {
   const heroRef = React.useRef(null);
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
 
-  const contentVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      }
-    }
-  };
-
   return (
     <motion.div 
       ref={heroRef}
