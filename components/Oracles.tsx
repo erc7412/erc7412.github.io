@@ -31,16 +31,16 @@ export default function Oracles() {
         Write smart contracts that call oracle contracts. Use your protocol with any app that has the client library installed.
       </p>
 
-<div className="mb-6">
-      <div className="mb-2 text-zinc-300 text-sm">
-        Start a local node that loads an <a href="https://usecannon.com/packages/erc7412-example/latest/13370-main/code" className="text-white hover:text-gray-200 underline underline-offset-2">example contract</a> which integrates with oracle contracts
-      </div>
+      <div className="mb-6">
+        <div className="mb-2 text-zinc-300 text-sm">
+          Start a local node that loads an <a href="https://usecannon.com/packages/erc7412-example/latest/13370-main/code" className="text-white hover:text-gray-200 underline underline-offset-2">example contract</a> which integrates with oracle contracts.
+        </div>
       
-      <CommandPreview command="npx @usecannon/cli erc7412-example" />
+        <CommandPreview command="npx @usecannon/cli erc7412-example" />
       </div>
 
       <div className="mb-2 text-zinc-300 text-sm">
-        Explore implementations for various <code>ORACLE_ID</code>s
+        Explore implementations for various <code>ORACLE_ID</code>s.
       </div>
 
       <div className="overflow-x-auto rounded-sm border border-zinc-800 shadow-lg">
@@ -65,7 +65,7 @@ export default function Oracles() {
                 <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
                   <button className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
                     <Github className="h-3.5 w-3.5" />
-                    Adapter Code
+                    Library Adapter Code
                   </button>
                 </td>
                 <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
