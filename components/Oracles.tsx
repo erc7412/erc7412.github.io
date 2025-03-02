@@ -34,17 +34,37 @@ export default function Oracles() {
         <table className="table-auto w-full text-left border-collapse bg-black">
           <tbody className="align-middle text-sm">
             {[
-              { id: 'PYTH', client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/pyth.ts' },
-              { id: 'WORMHOLE', client: '#' },
-              { id: 'CHAINLINK', client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/chainlink-datastreams.ts' },
-              { id: 'REDSTONE', client: 'https://github.com/redstone-finance/erc7412/blob/main/src/adapters/redstone.ts' },
+              { 
+                id: 'PYTH', 
+                client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/pyth.ts',
+                contract: '#',
+                deployments: '#'
+              },
+              { 
+                id: 'WORMHOLE', 
+                client: '#',
+                contract: '#',
+                deployments: '#'
+              },
+              { 
+                id: 'CHAINLINK', 
+                client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/chainlink-datastreams.ts',
+                contract: '#',
+                deployments: '#'
+              },
+              { 
+                id: 'REDSTONE', 
+                client: 'https://github.com/redstone-finance/erc7412/blob/main/src/adapters/redstone.ts',
+                contract: '#',
+                deployments: '#'
+              },
             ].map((row, index) => (
               <tr key={row.id}>
                 <td className={`px-3 py-2 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
                   {row.id}
                 </td>
                 <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
-                  <a href="#" className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
+                  <a href={row.contract} className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
                     <Github className="h-3.5 w-3.5" />
                     Oracle Contract Code
                   </a>
@@ -56,7 +76,7 @@ export default function Oracles() {
                   </a>
                 </td>
                 <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
-                  <a href="#" className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
+                  <a href={row.deployments} className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
                     <Image
                       src="/cannon.svg"
                       alt="Cannon"
