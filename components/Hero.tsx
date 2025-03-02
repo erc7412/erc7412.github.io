@@ -45,7 +45,7 @@ export default function Hero() {
           variant="outline"
           className="px-4"
           size="lg"
-          onClick={() => window.open('https://www.npmjs.com/package/erc7412', '_blank')}
+          onClick={() => window.open('https://github.com/erc7412/erc7412/blob/main/docs/integrate.md', '_blank')}
         >
           <Package className="mr-1 h-4 w-4" />
           Install Client Library
@@ -54,7 +54,7 @@ export default function Hero() {
           variant="outline"
           className="px-4"
           size="lg"
-          onClick={() => window.open('https://github.com/erc7412/erc7412', '_blank')}
+          onClick={() => window.open('https://github.com/erc7412/erc7412#erc-7412', '_blank')}
         >
           <Github className="mr-1 h-4 w-4" />
           View on GitHub
