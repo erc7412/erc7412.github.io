@@ -60,23 +60,23 @@ export default function Oracles() {
               },
             ].map((row, index) => (
               <tr key={row.id}>
-                <td className={`px-3 py-2 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                <td className={`px-3 py-2.5 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
                   {row.id}
                 </td>
-                <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
-                  <a href={row.contract} className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
+                <td className={`px-3 py-2.5 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                  <a href={row.contract} className="flex items-center justify-center gap-1.5 px-2 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
                     <Github className="h-3.5 w-3.5" />
                     Oracle Contract Code
                   </a>
                 </td>
-                <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
-                  <a href={row.client} className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
+                <td className={`px-3 py-2.5 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                  <a href={row.client} className="flex items-center justify-center gap-1.5 px-2 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
                     <Github className="h-3.5 w-3.5" />
                     Client Library Code
                   </a>
                 </td>
-                <td className={`px-3 py-2 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
-                  <a href={row.deployments} className="flex items-center gap-1.5 px-2 py-1 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
+                <td className={`px-3 py-2.5 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                  <a href={row.deployments} className="flex items-center justify-center gap-1.5 px-2 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors mx-auto whitespace-nowrap">
                     <Image
                       src="/cannon.svg"
                       alt="Cannon"
