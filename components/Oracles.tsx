@@ -37,8 +37,8 @@ export default function Oracles() {
               { 
                 id: 'PYTH', 
                 client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/pyth.ts',
-                contract: '#',
-                deployments: '#'
+                contract: 'https://github.com/Synthetixio/synthetix-v3/blob/main/auxiliary/PythERC7412Wrapper/contracts/PythERC7412Wrapper.sol',
+                deployments: 'https://usecannon.com/packages/pyth-erc7412-wrapper'
               },
               { 
                 id: 'WORMHOLE', 
@@ -49,13 +49,13 @@ export default function Oracles() {
               { 
                 id: 'CHAINLINK', 
                 client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/chainlink-datastreams.ts',
-                contract: '#',
+                contract: 'https://github.com/dbeal-eth/datastreams-erc7412/blob/main/contracts/DataStreamsERC7412Compatible.sol',
                 deployments: '#'
               },
               { 
                 id: 'REDSTONE', 
                 client: 'https://github.com/redstone-finance/erc7412/blob/main/src/adapters/redstone.ts',
-                contract: '#',
+                contract: 'https://github.com/redstone-finance/erc7412/blob/main/contracts/redstone-lib/ERC7412RedstoneFeed.sol',
                 deployments: '#'
               },
             ].map((row, index) => (
