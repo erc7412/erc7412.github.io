@@ -25,12 +25,12 @@ function HomeContent() {
     <div className="min-h-screen bg-black relative overflow-hidden">
       <motion.div 
         className="absolute inset-0"
-        initial={{ backgroundColor: "#1a1a1a" }}
+        initial={{ backgroundColor: "#2a2627" }}
         animate={{
           backgroundColor: "#000000"
         }}
         transition={{
-          duration: 2,
+          duration: 3,
           ease: "easeInOut"
         }}
       />

@@ -93,7 +93,7 @@ export default function Oracles() {
                 },
               ].map((row, index) => (
                 <tr key={row.id}>
-                  <td className={`px-3 py-2.5 ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
+                  <td className={`px-3 py-2.5 ${index !== 3 ? 'border-b border-zinc-800 font-medium tracking-wider' : ''}`}>
                     {row.id}
                   </td>
                   <td className={`px-3 py-2.5 text-center ${index !== 3 ? 'border-b border-zinc-800' : ''}`}>
