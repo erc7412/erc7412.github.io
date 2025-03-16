@@ -4,6 +4,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Package, Github, BookOpen } from "lucide-react";
 import { motion, useInView } from "framer-motion";
+import NpmIcon from "@/components/icons/NpmIcon";
 
 export default function Hero() {
   const heroRef = React.useRef(null);
@@ -40,33 +41,38 @@ export default function Hero() {
         during simulation. The client library then fetches and prepends the required data to the
         transaction automatically.
       </p>
-      <div className="flex flex-wrap gap-3 md:gap-5 mt-8">
+      <div className="flex flex-wrap md:gap-5 mt-6">
         <Button
           variant="outline"
-          className="px-4"
-          size="lg"
+          className="flex items-center justify-center gap-1.5 px-4 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors"
           onClick={() => window.open('https://github.com/erc7412/erc7412/blob/main/docs/integrate.md', '_blank')}
         >
-          <Package className="mr-1 h-4 w-4" />
+          <Package className="h-3.5 w-3.5" />
           Install Client Library
         </Button>
         <Button
           variant="outline"
-          className="px-4"
-          size="lg"
+          className="flex items-center justify-center gap-1.5 px-4 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors"
+          onClick={() => window.open('https://eips.ethereum.org/EIPS/eip-7412', '_blank')}
+        >
+          <BookOpen className="h-3.5 w-3.5" />
+          Read the ERC
+        </Button>
+        <Button
+          variant="outline"
+          className="flex items-center justify-center gap-1.5 px-4 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors"
           onClick={() => window.open('https://github.com/erc7412/erc7412#erc-7412', '_blank')}
         >
-          <Github className="mr-1 h-4 w-4" />
+          <Github className="h-3.5 w-3.5" />
           View on GitHub
         </Button>
         <Button
           variant="outline"
-          className="px-4"
-          size="lg"
-          onClick={() => window.open('https://eips.ethereum.org/EIPS/eip-7412', '_blank')}
+          className="flex items-center justify-center gap-1.5 px-4 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors"
+          onClick={() => window.open('https://www.npmjs.com/package/erc7412', '_blank')}
         >
-          <BookOpen className="mr-1 h-4 w-4" />
-          Read the ERC
+          <NpmIcon className="h-3.5 w-3.5" />
+          View on npm
         </Button>
       </div>
     </motion.div>

@@ -38,15 +38,17 @@ export default function CrossChainExample() {
         <CodeBlock
           text={`function verifyENSOwnership(address user, bytes ensNameNode) internal {
 
-    // Query ENS ownership data on mainnet
-    bytes memory ownerData = wormholeOracleContract.retrieveCrossChainData(
-        1,  // Ethereum mainnet chain ID
-        "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e", // ENS Universal Resolver
-        abi.encodeWithSelector(
+    // Query ENS ownership data on mainnet, 1 minute staleness tolerance
+    QueryData memory queryData = QueryData({
+        chainId: 1,
+        target: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
+        data: abi.encodeWithSelector(
             IENSRegistry.owner.selector,
             ensNameNode
-        )
-    );
+        ),
+        asOfTimestamp: 0 // Get latest data
+    });
+    bytes memory ownerData = wormholeOracleContract.getCrossChainData(queryData, 60);
     
     address ensOwner = abi.decode(ownerData, (address));
     require(ensOwner == user, "User does not own this ENS name");

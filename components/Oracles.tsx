@@ -70,14 +70,14 @@ export default function Oracles() {
                 { 
                   id: 'PYTH', 
                   client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/pyth.ts',
-                  contract: 'https://github.com/Synthetixio/synthetix-v3/blob/main/auxiliary/PythERC7412Wrapper/contracts/PythERC7412Wrapper.sol',
-                  deployments: 'https://usecannon.com/packages/pyth-erc7412-wrapper'
+                  contract: 'https://github.com/erc7412/erc7412/blob/main/contracts/PythERC7412Wrapper.sol',
+                  deployments: 'https://usecannon.com/packages/erc7412-pyth'
                 },
                 { 
                   id: 'WORMHOLE', 
-                  client: '#',
-                  contract: '#',
-                  deployments: '#'
+                  client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/wormhole.ts',
+                  contract: 'https://github.com/erc7412/erc7412/blob/main/contracts/WormholeERC7412Wrapper.sol',
+                  deployments: 'https://usecannon.com/packages/erc7412-wormhole'
                 },
                 { 
                   id: 'CHAINLINK', 
@@ -87,9 +87,9 @@ export default function Oracles() {
                 },
                 { 
                   id: 'REDSTONE', 
-                  client: 'https://github.com/redstone-finance/erc7412/blob/main/src/adapters/redstone.ts',
-                  contract: 'https://github.com/redstone-finance/erc7412/blob/main/contracts/redstone-lib/ERC7412RedstoneFeed.sol',
-                  deployments: '#'
+                  client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/redstone.ts',
+                  contract: 'https://github.com/erc7412/erc7412/blob/main/contracts/redstone-lib/ERC7412RedstoneFeed.sol',
+                  deployments: 'https://usecannon.com/packages/erc7412-redstone'
                 },
               ].map((row, index) => (
                 <tr key={row.id}>

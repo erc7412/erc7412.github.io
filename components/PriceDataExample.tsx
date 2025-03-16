@@ -60,23 +60,23 @@ export default function PriceDataExample() {
     require(msg.value == ethAmount, "Must send exact ETH amount");
 
     // Get ETH price from Chainlink
-    bytes memory chainlinkData = chainlinkOracleContract.retrieveOracleData(
+    bytes memory chainlinkData = chainlinkOracleContract.getLatestPrice(
         CHAINLINK_ETH_FEED,
-        abi.encodeWithSelector(IChainlinkFeed.latestAnswer.selector)
+        60
     );
     uint256 chainlinkPrice = abi.decode(chainlinkData, (uint256));
 
     // Get ETH price from Pyth
-    bytes memory pythData = pythOracleContract.retrieveOracleData(
+    bytes memory pythData = pythOracleContract.getLatestPrice(
         PYTH_ETH_FEED,
-        abi.encodeWithSelector(IPythFeed.getPrice.selector)
+        60
     );
     uint256 pythPrice = abi.decode(pythData, (uint256));
 
     // Get ETH price from Redstone
-    bytes memory redstoneData = redstoneOracleContract.retrieveOracleData(
+    bytes memory redstoneData = redstoneOracleContract.getLatestValue(
         REDSTONE_ETH_FEED,
-        abi.encodeWithSelector(IRedstoneOracle.getValue.selector)
+        60
     );
     uint256 redstonePrice = abi.decode(redstoneData, (uint256));
 
