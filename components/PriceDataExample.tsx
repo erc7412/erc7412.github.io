@@ -59,21 +59,21 @@ export default function PriceDataExample() {
     // Require ETH collateral
     require(msg.value == ethAmount, "Must send exact ETH amount");
 
-    // Get ETH price from Chainlink
+    // Get ETH price from Chainlink, 1 minute staleness tolerance
     bytes memory chainlinkData = chainlinkOracleContract.getLatestPrice(
         CHAINLINK_ETH_FEED,
         60
     );
     uint256 chainlinkPrice = abi.decode(chainlinkData, (uint256));
 
-    // Get ETH price from Pyth
+    // Get ETH price from Pyth, 1 minute staleness tolerance
     bytes memory pythData = pythOracleContract.getLatestPrice(
         PYTH_ETH_FEED,
         60
     );
     uint256 pythPrice = abi.decode(pythData, (uint256));
 
-    // Get ETH price from Redstone
+    // Get ETH price from Redstone, 1 minute staleness tolerance
     bytes memory redstoneData = redstoneOracleContract.getLatestValue(
         REDSTONE_ETH_FEED,
         60
