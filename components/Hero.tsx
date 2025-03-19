@@ -41,7 +41,7 @@ export default function Hero() {
         during simulation. The client library then fetches and prepends the required data to the
         transaction automatically.
       </p>
-      <div className="flex flex-wrap md:gap-5 mt-6">
+      <div className="flex flex-wrap gap-3 md:gap-5 mt-6">
         <Button
           variant="outline"
           className="flex items-center justify-center gap-1.5 px-4 py-1.5 text-xs rounded border border-zinc-800 hover:bg-zinc-800/50 transition-colors"
