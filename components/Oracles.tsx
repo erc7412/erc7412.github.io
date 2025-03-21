@@ -82,7 +82,7 @@ export default function Oracles() {
                 { 
                   id: 'CHAINLINK', 
                   client: 'https://github.com/erc7412/erc7412/blob/main/src/oracles/chainlink-datastreams.ts',
-                  contract: 'https://github.com/dbeal-eth/datastreams-erc7412/blob/main/contracts/DataStreamsERC7412Compatible.sol',
+                  contract: 'https://github.com/smartcontractkit/datastreams-erc7412',
                   deployments: 'https://usecannon.com/packages/erc7412-chainlink'
                 },
                 { 
